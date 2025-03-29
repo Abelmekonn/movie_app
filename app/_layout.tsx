@@ -9,9 +9,10 @@ export default function RootLayout() {
   return (
     <View style={{ flex: 1, marginTop: 0 }}>
       {/* Adaptive Status Bar */}
-      <StatusBar 
-        translucent 
-        style={theme === "dark" ? "light" : "dark"} 
+      <StatusBar
+        hidden={true}
+        translucent
+        style={theme === "dark" ? "light" : "dark"}
         backgroundColor="transparent" // Make the StatusBar background transparent
       />
 

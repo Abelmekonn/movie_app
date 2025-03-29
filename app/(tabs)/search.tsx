@@ -22,21 +22,25 @@ const Search = () => {
     }), false);
 
     useEffect(() => {
-
         const timeOutId = setTimeout(async () => {
             if (searchQuery.trim()) {
                 await loadMovies()
-
-                if (movies?.length > 0 && movies?.[0]) {
-                    updateSearchCount(searchQuery, movies[0])
-                }
-
             } else {
                 reset()
             }
         }, 500)
         return () => clearTimeout(timeOutId)
     }, [searchQuery])
+
+    useEffect(() => {
+        if (movies?.length > 0 && movies?.[0]) {
+            const updateTimeout = setTimeout(() => {
+                updateSearchCount(searchQuery, movies[0]);
+            }, 5000);
+    
+            return () => clearTimeout(updateTimeout); // Cleanup in case of re-render
+        }
+    },[movies])
 
     return (
         <View className='bg-primary flex-1'>
