@@ -17,9 +17,9 @@ export default function RootLayout() {
       />
 
       {/* Navigation Stack */}
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="(movies)" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)"/>
+        <Stack.Screen name="(movies)"/>
       </Stack>
     </View>
   );

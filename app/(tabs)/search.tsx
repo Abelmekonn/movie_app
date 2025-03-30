@@ -33,12 +33,12 @@ const Search = () => {
     }, [searchQuery])
 
     useEffect(() => {
-        if (movies?.length > 0 && movies?.[0]) {
+        if (movies?.length > 0 && movies[0]) {
             const updateTimeout = setTimeout(() => {
                 updateSearchCount(searchQuery, movies[0]);
-            }, 5000);
+            }, 2000); // 2s delay before updating search count
     
-            return () => clearTimeout(updateTimeout); // Cleanup in case of re-render
+            return () => clearTimeout(updateTimeout);
         }
     },[movies])
 
